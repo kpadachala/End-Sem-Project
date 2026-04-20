@@ -1,2 +1,80 @@
 # End-Sem-Project
- Udemy Course Popularity Prediction (XGBoost)📌 Project OverviewThis project predicts the popularity of Udemy courses (measured by rating_count) using a variety of machine learning techniques. By analyzing course metadata, we aim to understand what drives student engagement and enrollment.The project covers the full data science lifecycle: Data Cleaning, Feature Engineering, Supervised Learning, and Unsupervised Clustering.🎯 Problem StatementObjective: Predict the number of ratings a course will receive.Type: Regression.Dataset: ~314,000 rows (sampled to 50,000 for efficient training using Stratified Sampling).📊 Feature HighlightsThe model leverages several key attributes:Course Details: rating_average, duration_seconds, lectures_count.Accessibility: is_free, level, locale.Engagement: practice_test_questions_count.Engineered Features: Text-length metrics and date-based extraction.🤖 Modeling & PerformanceWe compared multiple algorithms to find the most accurate predictor:ModelDescriptionStatusRidge RegressionLinear baseline for comparison✅ TestedRandom ForestEnsemble bagging for robustness✅ TestedGradient BoostingSequential improvement✅ TestedXGBoost ⭐Best Performing Model🏆 OptimizedOptimization: Hyperparameters were tuned using RandomizedSearchCV to minimize error and prevent overfitting.⚙️ Project WorkflowPreprocessing: Handled missing values and applied Log Transformation (log1p) to the target variable to handle skewness.EDA: Visualized correlations and feature distributions using Seaborn/Matplotlib.Clustering: Used unsupervised learning to group courses into "types" based on similarity.Evaluation: Models were assessed using RMSE, MAE, and R² Score.
+Udemy Course Popularity Prediction (XGBoost)
+📌 Overview
+
+This project focuses on predicting the popularity of Udemy courses using machine learning techniques. Popularity is measured by the number of ratings (rating_count), which reflects user engagement and enrolment.
+
+The project applies data preprocessing, feature engineering, supervised learning models, and clustering techniques to analyze and predict course success.
+
+🎯 Problem Statement
+Goal: Predict course popularity (rating_count)
+Type: Regression problem
+Dataset Size: ~314K rows (~150MB)
+Sampling: Reduced to 50K rows using stratified sampling (based on course level)
+📊 Features Used
+
+Key features used in the model include:
+
+rating_average
+duration_seconds
+lectures_count
+is_free
+level
+locale
+practice_test_questions_count
+Engineered features (text & date-based)
+⚙️ Tech Stack
+Language: Python
+Libraries:
+Pandas, NumPy
+Scikit-learn
+XGBoost
+Matplotlib, Seaborn
+
+🔄 Workflow
+1. Data Loading & Inspection
+Load dataset
+Understand structure, missing values, and distributions
+2. Data Preprocessing
+Handle missing values
+Encode categorical variables
+Normalize/transform features
+Log transformation of target (log1p)
+3. Exploratory Data Analysis (EDA)
+Distribution plots
+Correlation analysis
+Feature relationships
+4. Feature Engineering
+Extract meaningful insights from:
+Text data
+Dates
+Create new predictive features
+5. Train-Test Split
+Split dataset into training and testing sets
+
+🤖 Models Used
+Model	Description
+Ridge Regression	Linear baseline model
+Random Forest	Ensemble bagging method
+Gradient Boosting	Sequential boosting
+XGBoost ⭐	Best performing model
+Hyperparameter tuning done using RandomizedSearchCV
+
+📈 Evaluation Metrics
+RMSE (Root Mean Squared Error)
+MAE (Mean Absolute Error)
+MAPE (Mean Absolute Percentage Error)
+R² Score
+
+🧠 Unsupervised Learning
+Applied clustering techniques to group similar courses
+Helps identify patterns in course types and popularity
+
+🏆 Key Insights
+Course popularity is strongly influenced by:
+Ratings (rating_average)
+Content duration
+Number of lectures
+Paid vs free courses show different engagement trends
+Feature engineering significantly improves performance
+XGBoost outperforms other models due to better handling of non-linearity
